@@ -8,18 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/hello") // Parent mapping
 public class HelloWorldController {
 	
 	// need a controller method to show the initial HTML form
 	
-	@RequestMapping("/showForm")
+	@RequestMapping("/showForm") // Sub mappings(relative)
 	public String showForm() {
 		return "helloworld-form"; // helloworld-form.jsp 페이지로 이동
 	}
 	
 	// need a controller method to process the HTML form
 
-	@RequestMapping("/processForm")
+	@RequestMapping("/processForm") // Sub mappings(relative)
 	public String processForm() {
 		return "helloworld"; // helloworld.jsp 페이지로 이동
 	}
