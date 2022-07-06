@@ -26,24 +26,37 @@ public class CreateDemo {
 		try {
 			
 			// create the objects
+//			Instructor tempInstructor =
+//					new Instructor("Chad", "Darby", "darby@luv2code.com");
+//			
+//			InstructorDetail tempInstructorDetail =
+//					new InstructorDetail(
+//							"http://www.luv2code.com/youtube",
+//							"Luv 2 code!!!"); 
+			
 			Instructor tempInstructor =
-					new Instructor("Chad", "Darby", "darby@luv2code.com");
+					new Instructor("Madhu", "Patel", "madhu@luv2code.com");
 			
 			InstructorDetail tempInstructorDetail =
 					new InstructorDetail(
-							"http://www.luv2code.com/youtube",
-							"Luv 2 code!!!"); 
+							"http://www.youtube.com",
+							"Guitar"); 
 			
 			// associate the objects(객체들을 연결)
 			// 객체들이 메모리에 연결됨, 실제로 db에 저장하려면 추가적인 과정을 거쳐야됨
 			tempInstructor.setInstructorDetail(tempInstructorDetail);
 			
-			
-
 			// start a transaction
 			session.beginTransaction();
 			
 			// save the instructor
+			// 실제로 db에 instructor을 저장하는 법
+			//
+			// Note : this will ALSO save the details object
+			// because of CascadeType.ALL
+			// CascadeType.ALL 때문에 deatils object도 저장된다
+			System.out.println("Saving instructor : "+tempInstructor);
+			session.save(tempInstructor);
 			
 			
 			// commit transaction
